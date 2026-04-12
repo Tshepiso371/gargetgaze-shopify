@@ -1,0 +1,39 @@
+{% schema %}
+{
+  "name": "Product Gadgets",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Gadget Deal"
+    }
+  ]
+}
+{% endschema %}
+
+<section style="padding:40px; background:#fdf2f8;">
+
+  <h1 style="font-size:28px; font-weight:800;">
+    {{ product.title }}
+  </h1>
+
+  <p style="color:#ec4899; font-weight:600;">
+    {{ section.settings.badge_text }}
+  </p>
+
+  <img 
+    src="{{ product.featured_image | image_url }}" 
+    width="300"
+    style="border-radius:15px; margin:20px 0;"
+  >
+
+  <p style="color:#475569;">
+    {{ product.description }}
+  </p>
+
+  <h3 style="margin-top:15px;">
+    {{ product.price | money }}
+  </h3>
+
+</section>
