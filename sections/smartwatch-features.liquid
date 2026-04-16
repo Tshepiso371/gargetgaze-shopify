@@ -1,0 +1,22 @@
+<div class="smartwatch">
+  <h2>{{ product.title }}</h2>
+
+  <p>Price: {{ product.price | money }}</p>
+
+  <h3>Variants:</h3>
+  <ul>
+    {% for variant in product.variants %}
+      <li>{{ variant.title }} - {{ variant.price | money }}</li>
+    {% endfor %}
+  </ul>
+
+  {% if product.metafields.custom.water_resistance_rating != blank %}
+    <p>Water Resistance: {{ product.metafields.custom.water_resistance_rating }}</p>
+  {% endif %}
+
+  {% if product.metafields.custom.technical_manual != blank %}
+    <a href="{{ product.metafields.custom.technical_manual }}">
+      Download Manual
+    </a>
+  {% endif %}
+</div>
