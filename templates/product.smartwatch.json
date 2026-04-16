@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "features": {
+      "type": "smartwatch-features"
+    }
+  },
+  "order": ["main", "features"]
+}
