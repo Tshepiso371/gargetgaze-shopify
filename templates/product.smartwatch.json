@@ -1,11 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
-      "type": "featured-product"
+      "type": "featured-product",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "video",
+            "link": "",
+            "video": "shopify://files/videos/Seiya-Pro-16-9-clean_Batch.mp4",
+            "video_loop": true,
+            "video_autoplay": true,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {}
     },
     "features": {
-      "type": "smartwatch-features"
+      "type": "smartwatch-features",
+      "settings": {}
     }
   },
-  "order": ["main", "features"]
+  "order": [
+    "main",
+    "features"
+  ]
 }
