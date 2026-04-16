@@ -1,34 +1,97 @@
-<div class="smartwatch">
-  <h2>{{ product.title }}</h2>
+<div class="product-layout">
 
-  <p>Price: {{ product.price | money }}</p>
 
-  <h3>Variants:</h3>
-  <ul>
-    {% for variant in product.variants %}
-      <li>{{ variant.title }} - {{ variant.price | money }}</li>
-    {% endfor %}
-  </ul>
+  <div class="left">
+    <img 
+      src="{{ product.featured_image | image_url: width: 500 }}"
+      width="500"
+      height="500"
+      loading="lazy"
+      alt="{{ product.title }}"
+    >
+  </div>
 
-  {% if product.metafields.custom.water_resistance_rating != blank %}
-    <p>Water Resistance: {{ product.metafields.custom.water_resistance_rating }}</p>
-  {% endif %}
+  
+  <div class="right">
+    <h1>{{ product.title }}</h1>
+    <p class="price">{{ product.price | money }}</p>
 
-  {% if product.metafields.custom.technical_manual != blank %}
-    <a href="{{ product.metafields.custom.technical_manual }}">
-      Download Manual
-    </a>
-  {% endif %}
+    
+    <div class="variants">
+      <h3>Options</h3>
+      {% for variant in product.variants %}
+        <div class="variant">{{ variant.title }}</div>
+      {% endfor %}
+    </div>
+
+
+    <div class="meta">
+      {% if product.metafields.custom.water_proof_level != blank %}
+        <p><strong>Water Proof:</strong> {{ product.metafields.custom.water_proof_level }}</p>
+      {% endif %}
+
+      {% if product.metafields.custom.system_requirements != blank %}
+        <p><strong>System:</strong> {{ product.metafields.custom.system_requirements }}</p>
+      {% endif %}
+
+      {% if product.metafields.custom.charging_port != blank %}
+        <p><strong>Charging:</strong> {{ product.metafields.custom.charging_port }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+
 <style>
-.smartwatch {
-  padding: 20px;
+.product-layout {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  background: white;
 }
 
-@media (min-width: 768px) {
-  .smartwatch {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+
+.left {
+  flex: 1;
+}
+
+.left img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+.right {
+  flex: 1;
+}
+
+.price {
+  font-size: 20px;
+  margin: 10px 0 20px;
+}
+
+
+.variants {
+  margin-bottom: 20px;
+}
+
+.variant {
+  padding: 8px 12px;
+  border: 1px solid #800020; /* maroon */
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  border-radius: 6px;
+  color: #800020;
+}
+
+.meta p {
+  margin: 6px 0;
+}
+
+
+@media (max-width: 768px) {
+  .product-layout {
+    flex-direction: column;
   }
 }
 </style>
-</div>
